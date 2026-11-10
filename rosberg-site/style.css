@@ -768,3 +768,335 @@ dialog p {
     transform: none;
   }
 }
+
+/* ==========================================
+   CERTIFICADOS — ANIMAÇÃO FLIP 3D
+========================================== */
+
+
+/* ÁREA COM PERSPECTIVA */
+
+.certificate-flip-container {
+
+    width: 100%;
+    height: 240px;
+
+    perspective: 1200px;
+
+}
+
+
+/* ELEMENTO QUE GIRA */
+
+.certificate-flip-inner {
+
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    transform-style: preserve-3d;
+
+    transition:
+        transform 0.85s cubic-bezier(
+            0.22, 1, 0.36, 1
+        );
+
+}
+
+
+/* ATIVA A ROTAÇÃO */
+
+.certification-card.is-flipped
+.certificate-flip-inner {
+
+    transform: rotateY(180deg);
+
+}
+
+
+/* FACES DO CERTIFICADO */
+
+.certificate-face {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+
+    background: #1b1b1d;
+
+    border: 1px solid var(--line);
+
+    overflow: hidden;
+
+    transition: border-color .3s ease;
+
+}
+
+
+/* FRENTE */
+
+.certificate-front {
+
+    transform: rotateY(0deg);
+
+}
+
+
+/* VERSO */
+
+.certificate-back {
+
+    transform: rotateY(180deg);
+
+}
+
+
+/* BOTÃO DE VISUALIZAÇÃO */
+
+.certificate-view {
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+
+    padding: 15px;
+
+    background: transparent;
+
+    border: none;
+
+    cursor: pointer;
+
+}
+
+
+/* IMAGEM */
+
+.certificate-view img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    display: block;
+
+    transition: transform .45s ease;
+
+}
+
+
+/* HOVER NA IMAGEM */
+
+.certificate-view:hover img {
+
+    transform: scale(1.045);
+
+}
+
+
+/* TEXTO DE AMPLIAR */
+
+.certificate-zoom {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(0, 0, 0, .72);
+
+    color: #fff;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    letter-spacing: 2px;
+
+    opacity: 0;
+
+    transition: opacity .35s ease;
+
+}
+
+
+/* MOSTRAR OVERLAY */
+
+.certificate-view:hover .certificate-zoom,
+.certificate-view:focus-visible .certificate-zoom {
+
+    opacity: 1;
+
+}
+
+
+/* BORDA NO HOVER */
+
+.certificate-face:hover {
+
+    border-color: var(--accent);
+
+}
+
+
+/* ==========================================
+   BOTÃO DE VIRAR CERTIFICADO
+========================================== */
+
+.certificate-flip-btn {
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-top: 20px;
+
+    padding: 11px 16px;
+
+    background: transparent;
+
+    color: var(--accent);
+
+    border: 1px solid var(--accent);
+
+    font-size: 10px;
+    font-weight: 600;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition:
+        background .3s ease,
+        color .3s ease,
+        transform .3s ease;
+
+}
+
+
+/* HOVER DO BOTÃO */
+
+.certificate-flip-btn:hover {
+
+    background: var(--accent);
+
+    color: #111;
+
+    transform: translateY(-2px);
+
+}
+
+
+/* ÍCONE DE ROTAÇÃO */
+
+.flip-icon {
+
+    display: inline-block;
+
+    font-size: 19px;
+
+    line-height: 1;
+
+    transition: transform .6s ease;
+
+}
+
+
+/* ANIMAR ÍCONE */
+
+.certification-card.is-flipped
+.flip-icon {
+
+    transform: rotate(180deg);
+
+}
+
+
+/* ==========================================
+   RESPONSIVIDADE
+========================================== */
+
+@media (max-width: 900px) {
+
+    .certificate-flip-container {
+
+        height: 240px;
+
+    }
+
+}
+
+
+@media (max-width: 640px) {
+
+    .certificate-flip-container {
+
+        height: 260px;
+
+    }
+
+}
+
+
+/* ACESSIBILIDADE */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .certificate-flip-inner {
+
+        transition: none;
+
+    }
+
+}
+
+
+
+
+
+/* ==========================================
+   CERTIFICAÇÕES — GRADE 3x3
+========================================== */
+
+/* COMPUTADORES */
+.certifications-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 30px;
+    width: 100%;
+    align-items: start;
+}
+
+/* TABLETS */
+@media (max-width: 900px) {
+    .certifications-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* CELULARES */
+@media (max-width: 640px) {
+    .certifications-grid {
+        grid-template-columns: 1fr;
+    }
+}
