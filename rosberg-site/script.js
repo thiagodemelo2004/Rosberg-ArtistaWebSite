@@ -6,7 +6,7 @@ const certifications = [
 
     {
         title: "Formação de Ator Iniciante",
-        year: "2024",
+        year: "2022",
         institution: "Centro Estadual de Arte — CEARTE",
         image: "15-4-24.png"
     },
@@ -39,14 +39,14 @@ const certifications = [
 
     {
         title: "Montagem Teatral III Avançado",
-        year: "2026",
+        year: "2025",
         institution: "Centro Estadual de Arte — CEARTE",
         image: "8-6-26.png"
     },
 
     {
         title: "Teatro Laboratório III Avançado",
-        year: "2026",
+        year: "2025",
         institution: "Centro Estadual de Arte — CEARTE",
         image: "8-6-26 2.png"
     },
